@@ -27,24 +27,23 @@ using Shouldly;
 
 using Xunit;
 
-namespace IniFile.Tests
+namespace IniFile.Tests;
+
+public sealed class SaveTests
 {
-    public sealed class SaveTests
-    {
-        private readonly Ini _ini;
+	private readonly Ini _ini;
 
-        public SaveTests()
-        {
-            _ini = new Ini();
-        }
+	public SaveTests()
+	{
+		_ini = new Ini();
+	}
 
-        [Fact]
-        public void SaveTo_Throws_on_non_writable_stream()
-        {
-            var stream = new Mock<Stream>();
-            stream.Setup(s => s.CanWrite).Returns(false);
+	[Fact]
+	public void SaveToThrowsOnNonWritableStream()
+	{
+		var stream = new Mock<Stream>();
+		_ = stream.Setup(s => s.CanWrite).Returns(false);
 
-            Should.Throw<ArgumentException>(() => _ini.SaveTo(stream.Object));
-        }
-    }
+		_ = Should.Throw<ArgumentException>(() => _ini.SaveTo(stream.Object));
+	}
 }

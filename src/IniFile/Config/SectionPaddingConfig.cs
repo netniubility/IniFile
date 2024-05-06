@@ -8,7 +8,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -20,23 +20,22 @@ limitations under the License.
 
 using IniFile.Items;
 
-namespace IniFile.Config
-{
-    /// <summary>
-    ///     Configuration for padding defaults in sections.
-    /// </summary>
-    public sealed class SectionPaddingConfig : ItemPaddingConfig
-    {
-        /// <summary>
-        ///     The default padding between the opening square bracket of a section and the start of
-        ///     the section name. Default is 0.
-        /// </summary>
-        public PaddingValue InsideLeft { get; set; }
+namespace IniFile.Config;
 
-        /// <summary>
-        ///     The default padding between the end of the section name and the closing square
-        ///     bracket of a section. Default is 0.
-        /// </summary>
-        public PaddingValue InsideRight { get; set; }
-    }
-}
+	/// <summary>
+	///     Configuration for padding defaults in sections.
+	/// </summary>
+	public sealed class SectionPaddingConfig : ItemPaddingConfig
+	{
+		/// <summary>
+		///     The default padding between the opening square bracket of a section and the start of
+		///     the section name. Default is 0.
+		/// </summary>
+		public PaddingValue InsideLeft { get; set; }
+
+		/// <summary>
+		///     The default padding between the end of the section name and the closing square
+		///     bracket of a section. Default is 0.
+		/// </summary>
+		public PaddingValue InsideRight { get; set; }
+	}

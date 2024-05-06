@@ -23,72 +23,73 @@ using Shouldly;
 using Xunit;
 using Xunit.DataAttributes;
 
-namespace IniFile.Tests
+namespace IniFile.Tests;
+
+public sealed class IniLoadSettingTests
 {
-    public sealed class IniLoadSettingTests
-    {
-        private readonly IniLoadSettings _settings;
+	private readonly IniLoadSettings _settings;
 
-        public IniLoadSettingTests()
-        {
-            _settings = new IniLoadSettings();
-        }
+	public IniLoadSettingTests()
+	{
+		_settings = new IniLoadSettings();
+	}
 
-        [Theory]
-        [EmbeddedResourceContent("IniFile.Tests.Data.Valid.ini")]
-        public void Load_Should_ignore_blank_lines(string iniContent)
-        {
-            _settings.IgnoreBlankLines = true;
+	[Theory]
+	[EmbeddedResourceContent("IniFile.Tests.Data.Valid.ini")]
+	public void LoadShouldIgnoreBlankLines(string iniContent)
+	{
+		_settings.IgnoreBlankLines = true;
 
-            Ini ini = Ini.Load(iniContent, _settings);
+		Ini ini = Ini.Load(iniContent, _settings);
 
-            foreach (Section section in ini)
-            {
-                section.Items.OfType<BlankLine>().Count().ShouldBe(0);
-                section.Items.OfType<Comment>().Count().ShouldBeGreaterThan(0);
-                foreach (Property property in section)
-                {
-                    property.Items.OfType<BlankLine>().Count().ShouldBe(0);
-                    property.Items.OfType<Comment>().Count().ShouldBeGreaterThan(0);
-                }
-            }
-        }
+		foreach (Section section in ini)
+		{
+			section.Items.OfType<BlankLine>().Count().ShouldBe(0);
+			section.Items.OfType<Comment>().Count().ShouldBeGreaterThan(0);
+			foreach (Property property in section)
+			{
+				property.Items.OfType<BlankLine>().Count().ShouldBe(0);
+				property.Items.OfType<Comment>().Count().ShouldBeGreaterThan(0);
+			}
+		}
+	}
 
-        [Theory]
-        [EmbeddedResourceContent("IniFile.Tests.Data.Valid.ini")]
-        public void Load_Should_ignore_comments(string iniContent)
-        {
-            _settings.IgnoreComments = true;
+	[Theory]
+	[EmbeddedResourceContent("IniFile.Tests.Data.Valid.ini")]
+	public void LoadShouldIgnoreComments(string iniContent)
+	{
+		_settings.IgnoreComments = true;
 
-            Ini ini = Ini.Load(iniContent, _settings);
+		Ini ini = Ini.Load(iniContent, _settings);
 
-            foreach (Section section in ini)
-            {
-                section.Items.OfType<Comment>().Count().ShouldBe(0);
-                section.Items.OfType<BlankLine>().Count().ShouldBeGreaterThan(0);
-                foreach (Property property in section)
-                {
-                    property.Items.OfType<Comment>().Count().ShouldBe(0);
-                    property.Items.OfType<BlankLine>().Count().ShouldBeGreaterThan(0);
-                }
-            }
-        }
+		foreach (Section section in ini)
+		{
+			section.Items.OfType<Comment>().Count().ShouldBe(0);
+			section.Items.OfType<BlankLine>().Count().ShouldBeGreaterThan(0);
+			foreach (Property property in section)
+			{
+				property.Items.OfType<Comment>().Count().ShouldBe(0);
+				property.Items.OfType<BlankLine>().Count().ShouldBeGreaterThan(0);
+			}
+		}
+	}
 
-        [Theory]
-        [EmbeddedResourceContent("IniFile.Tests.Data.Valid.ini")]
-        public void Load_Should_ignore_blank_lines_and_comments(string iniContent)
-        {
-            _settings.IgnoreBlankLines = true;
-            _settings.IgnoreComments = true;
+	[Theory]
+	[EmbeddedResourceContent("IniFile.Tests.Data.Valid.ini")]
+	public void LoadShouldIgnoreBlankLinesAndComments(string iniContent)
+	{
+		_settings.IgnoreBlankLines = true;
+		_settings.IgnoreComments = true;
 
-            Ini ini = Ini.Load(iniContent, _settings);
+		Ini ini = Ini.Load(iniContent, _settings);
 
-            foreach (Section section in ini)
-            {
-                section.Items.Count.ShouldBe(0);
-                foreach (Property property in section)
-                    property.Items.Count.ShouldBe(0);
-            }
-        }
-    }
+		foreach (Section section in ini)
+		{
+			section.Items.Count.ShouldBe(0);
+			foreach (Property property in section)
+			{
+				property.Items.Count.ShouldBe(0);
+			}
+		}
+	}
 }

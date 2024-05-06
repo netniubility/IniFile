@@ -24,28 +24,28 @@
         </member>
         <member name="T:IniFile.Comment">
             <summary>
-                Represents a comment object in an INI.
+            Represents a comment object in an INI.
             </summary>
         </member>
         <member name="M:IniFile.Comment.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Comment"/> class with an empty comment.
+            Initializes a new instance of the <see cref="T:IniFile.Comment"/> class with an empty comment.
             </summary>
         </member>
         <member name="M:IniFile.Comment.#ctor(System.String)">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Comment"/> class with the specified text.
+            Initializes a new instance of the <see cref="T:IniFile.Comment"/> class with the specified text.
             </summary>
-            <param name="text">The comment text.</param>
-        </member>
-        <member name="P:IniFile.Comment.Text">
-            <summary>
-                The comment text.
-            </summary>
+            <param name="text"> The comment text. </param>
         </member>
         <member name="P:IniFile.Comment.Padding">
             <summary>
-                Padding details of this <see cref="T:IniFile.Comment"/>.
+            Padding details of this <see cref="T:IniFile.Comment"/>.
+            </summary>
+        </member>
+        <member name="P:IniFile.Comment.Text">
+            <summary>
+            The comment text.
             </summary>
         </member>
         <member name="M:IniFile.Comment.ToString">
@@ -263,186 +263,145 @@
         </member>
         <member name="T:IniFile.Ini">
             <summary>
-                <para>In-memory object representation of an INI file.</para>
-                <para>This class is a read-only collection of <see cref="T:IniFile.Section"/> objects.</para>
+            <para> In-memory object representation of an INI file. </para>
+            <para> This class is a read-only collection of <see cref="T:IniFile.Section"/> objects. </para>
+            </summary>
+        </member>
+        <member name="F:IniFile.Ini.Config">
+            <summary>
+            Global configuration for the framework.
             </summary>
         </member>
         <member name="M:IniFile.Ini.#ctor">
             <summary>
-                Initializes a new empty instance of the <see cref="T:IniFile.Ini"/> class with the default
-                settings.
+            Initializes a new empty instance of the <see cref="T:IniFile.Ini"/> class with the default settings.
             </summary>
         </member>
         <member name="M:IniFile.Ini.#ctor(IniFile.IniLoadSettings)">
             <summary>
-                Initializes a new empty instance of the <see cref="T:IniFile.Ini"/> class with the specified
-                settings.
+            Initializes a new empty instance of the <see cref="T:IniFile.Ini"/> class with the specified settings.
             </summary>
-            <param name="settings">The Ini file settings.</param>
+            <param name="settings"> The Ini file settings. </param>
         </member>
         <member name="M:IniFile.Ini.#ctor(System.IO.FileInfo,IniFile.IniLoadSettings)">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from
-                the specified file.
+            Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from the specified file.
             </summary>
-            <param name="iniFile">The .ini file to load from.</param>
-            <param name="settings">Optional Ini file settings.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the <c>iniFile</c> is <c>null</c>.</exception>
-            <exception cref="T:System.IO.FileNotFoundException">Thrown if the specified file does not exist.</exception>
+            <param name="iniFile">  The .ini file to load from. </param>
+            <param name="settings"> Optional Ini file settings. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the <c> iniFile </c> is <c> null </c>. </exception>
+            <exception cref="T:System.IO.FileNotFoundException"> Thrown if the specified file does not exist. </exception>
         </member>
         <member name="M:IniFile.Ini.#ctor(System.String,IniFile.IniLoadSettings)">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from
-                the specified file.
+            Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from the specified file.
             </summary>
-            <param name="iniFilePath">The path to the .ini file.</param>
-            <param name="settings">Optional Ini file settings.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the <c>iniFilePath</c> is <c>null</c>.</exception>
-            <exception cref="T:System.IO.FileNotFoundException">Thrown if the specified file does not exist.</exception>
+            <param name="iniFilePath"> The path to the .ini file. </param>
+            <param name="settings">    Optional Ini file settings. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the <c> iniFilePath </c> is <c> null </c>. </exception>
+            <exception cref="T:System.IO.FileNotFoundException"> Thrown if the specified file does not exist. </exception>
         </member>
         <member name="M:IniFile.Ini.#ctor(System.IO.Stream,IniFile.IniLoadSettings)">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from
-                the specified stream.
+            Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from the specified stream.
             </summary>
-            <param name="stream">The stream to load from.</param>
-            <param name="settings">Optional Ini file settings.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified stream is null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown if the stream cannot be read.</exception>
+            <param name="stream">   The stream to load from. </param>
+            <param name="settings"> Optional Ini file settings. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the specified stream is null. </exception>
+            <exception cref="T:System.ArgumentException"> Thrown if the stream cannot be read. </exception>
         </member>
         <member name="M:IniFile.Ini.#ctor(System.IO.TextReader,IniFile.IniLoadSettings)">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from
-                the specified <see cref="T:System.IO.TextReader"/>.
+            Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from the specified <see cref="T:System.IO.TextReader"/>.
             </summary>
-            <param name="reader">The <see cref="T:System.IO.TextReader"/> to load from.</param>
-            <param name="settings">Optional Ini file settings.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified text reader is null.</exception>
-        </member>
-        <member name="M:IniFile.Ini.Load(System.String,IniFile.IniLoadSettings)">
-            <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from
-                the specified string.
-            </summary>
-            <param name="content">The string representing the Ini content.</param>
-            <param name="settings">Optional Ini file settings.</param>
-            <returns>An instance of the <see cref="T:IniFile.Ini"/> class.</returns>
-        </member>
-        <member name="M:IniFile.Ini.ParseIniFile(System.IO.TextReader)">
-            <summary>
-                Transforms the INI content into an in-memory object model.
-            </summary>
-            <param name="reader">The INI content.</param>
-        </member>
-        <member name="M:IniFile.Ini.ParseLines(System.IO.TextReader)">
-            <summary>
-                Read all lines from the given text reader, parse and generate INI objects such as
-                section, properties, comments and blank lines.
-            </summary>
-            <param name="reader">The <see cref="T:System.IO.TextReader"/> instance to read the INI lines from.</param>
-            <returns></returns>
-        </member>
-        <member name="M:IniFile.Ini.CreateObjectModel(IniFile.IniLoadSettings,System.Collections.Generic.IList{IniFile.Items.IniItem})">
-            <summary>
-                Go through each line object and construct a hierarchical object model, with properties
-                under sections and comments/blank lines under respective sections and properties.
-            </summary>
-            <param name="settings">The INI load settings that control the load behavior.</param>
-            <param name="lineItems"></param>
-        </member>
-        <member name="M:IniFile.Ini.SaveTo(System.String)">
-            <summary>
-                Saves the <see cref="T:IniFile.Ini"/> instance to a file at the specified file path.
-            </summary>
-            <param name="filePath">The path of the file to save to.</param>
-        </member>
-        <member name="M:IniFile.Ini.SaveTo(System.IO.FileInfo)">
-            <summary>
-                Saves the <see cref="T:IniFile.Ini"/> instance to the specified file.
-            </summary>
-            <param name="file">The <see cref="T:System.IO.FileInfo"/> object that represents the file to save to.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified file is null.</exception>
-        </member>
-        <member name="M:IniFile.Ini.SaveTo(System.IO.Stream)">
-            <summary>
-                Saves the <see cref="T:IniFile.Ini"/> instance to the specified stream.
-            </summary>
-            <param name="stream">The stream to save to.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified stream is null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown if the stream cannot be written to.</exception>
-        </member>
-        <member name="M:IniFile.Ini.SaveTo(System.IO.TextWriter)">
-            <summary>
-                Saves the <see cref="T:IniFile.Ini"/> instance to the specified text writer.
-            </summary>
-            <param name="writer">The text writer to save to.</param>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified text writer is null.</exception>
-        </member>
-        <member name="M:IniFile.Ini.ToString">
-            <summary>
-                Constructs a string representing the <see cref="T:IniFile.Ini"/> instance data.
-            </summary>
-            <returns>A string representing the <see cref="T:IniFile.Ini"/> instance data.</returns>
-        </member>
-        <member name="M:IniFile.Ini.InternalSave(System.IO.TextWriter)">
-            <summary>
-                Common method called to save the <see cref="T:IniFile.Ini"/> instance data to various destinations
-                such as streams, strings, files and text writers.
-            </summary>
-            <param name="writer">The text writer to write the data to.</param>
-        </member>
-        <member name="M:IniFile.Ini.SaveToAsync(System.IO.Stream)">
-            <summary>
-                Saves the <see cref="T:IniFile.Ini"/> instance to the specified stream asynchronously.
-            </summary>
-            <param name="stream">The stream to save to.</param>
-            <returns>A task representing the asynchronous save operation.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified stream is null.</exception>
-            <exception cref="T:System.ArgumentException">Thrown if the stream cannot be written to.</exception>
-        </member>
-        <member name="M:IniFile.Ini.SaveToAsync(System.IO.TextWriter)">
-            <summary>
-                Saves the <see cref="T:IniFile.Ini"/> instance to the specified text writer asynchronously.
-            </summary>
-            <param name="writer">The text writer to save to.</param>
-            <returns>A task representing the asynchronous save operation.</returns>
-            <exception cref="T:System.ArgumentNullException">Thrown if the specified text writer is null.</exception>
-        </member>
-        <member name="M:IniFile.Ini.InternalSaveAsync(System.IO.TextWriter)">
-            <summary>
-                Common method called to asynchronously  save the <see cref="T:IniFile.Ini"/> instance data to
-                various destinations such as streams, strings, files and text writers.
-            </summary>
-            <param name="writer">The text writer to write the data to.</param>
-            <returns>A task representing the asynchronous save operation.</returns>
+            <param name="reader">   The <see cref="T:System.IO.TextReader"/> to load from. </param>
+            <param name="settings"> Optional Ini file settings. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the specified text reader is null. </exception>
         </member>
         <member name="P:IniFile.Ini.TrailingItems">
             <summary>
-                Any trailing comments and blank lines at the end of the INI.
+            Any trailing comments and blank lines at the end of the INI.
             </summary>
+        </member>
+        <member name="M:IniFile.Ini.Load(System.String,IniFile.IniLoadSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:IniFile.Ini"/> class and loads the data from the specified string.
+            </summary>
+            <param name="content">  The string representing the Ini content. </param>
+            <param name="settings"> Optional Ini file settings. </param>
+            <returns> An instance of the <see cref="T:IniFile.Ini"/> class. </returns>
         </member>
         <member name="M:IniFile.Ini.Format(IniFile.IniFormatOptions)">
             <summary>
-                Formats the INI content by resetting all padding and applying any formatting rules
-                as per the <c>options</c> parameter.
+            Formats the INI content by resetting all padding and applying any formatting rules as per the <c> options </c> parameter.
             </summary>
-            <param name="options">
-                Optional rules for formatting the INI content. Uses default rules
-                (<see cref="F:IniFile.IniFormatOptions.Default"/>) if not specified.
-            </param>
+            <param name="options"> Optional rules for formatting the INI content. Uses default rules ( <see cref="F:IniFile.IniFormatOptions.Default"/>) if not specified. </param>
+        </member>
+        <member name="M:IniFile.Ini.SaveTo(System.String)">
+            <summary>
+            Saves the <see cref="T:IniFile.Ini"/> instance to a file at the specified file path.
+            </summary>
+            <param name="filePath"> The path of the file to save to. </param>
+        </member>
+        <member name="M:IniFile.Ini.SaveTo(System.IO.FileInfo)">
+            <summary>
+            Saves the <see cref="T:IniFile.Ini"/> instance to the specified file.
+            </summary>
+            <param name="file"> The <see cref="T:System.IO.FileInfo"/> object that represents the file to save to. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the specified file is null. </exception>
+        </member>
+        <member name="M:IniFile.Ini.SaveTo(System.IO.Stream)">
+            <summary>
+            Saves the <see cref="T:IniFile.Ini"/> instance to the specified stream.
+            </summary>
+            <param name="stream"> The stream to save to. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the specified stream is null. </exception>
+            <exception cref="T:System.ArgumentException"> Thrown if the stream cannot be written to. </exception>
+        </member>
+        <member name="M:IniFile.Ini.SaveTo(System.IO.TextWriter)">
+            <summary>
+            Saves the <see cref="T:IniFile.Ini"/> instance to the specified text writer.
+            </summary>
+            <param name="writer"> The text writer to save to. </param>
+            <exception cref="T:System.ArgumentNullException"> Thrown if the specified text writer is null. </exception>
+        </member>
+        <member name="M:IniFile.Ini.ToString">
+            <summary>
+            Constructs a string representing the <see cref="T:IniFile.Ini"/> instance data.
+            </summary>
+            <returns> A string representing the <see cref="T:IniFile.Ini"/> instance data. </returns>
         </member>
         <member name="M:IniFile.Ini.FormatMinorItems(System.Collections.Generic.IList{IniFile.Items.MinorIniItem})">
             <summary>
-                Formats a collection of minor INI items (i.e. <see cref="T:IniFile.Comment"/> and
-                <see cref="T:IniFile.BlankLine"/>). By default, the paddings for these items are reset, but the
-                method can also optionally remove consecutive blank lines.
+            Formats a collection of minor INI items (i.e. <see cref="T:IniFile.Comment"/> and <see cref="T:IniFile.BlankLine"/>). By default, the paddings for these items are reset, but the method can also optionally remove consecutive blank lines.
             </summary>
-            <param name="minorItems">The collection of items to format.</param>
+            <param name="minorItems"> The collection of items to format. </param>
         </member>
-        <member name="F:IniFile.Ini.Config">
+        <member name="M:IniFile.Ini.ParseLines(System.IO.TextReader)">
             <summary>
-                Global configuration for the framework.
+            Read all lines from the given text reader, parse and generate INI objects such as section, properties, comments and blank lines.
             </summary>
+            <param name="reader"> The <see cref="T:System.IO.TextReader"/> instance to read the INI lines from. </param>
+            <returns> </returns>
+        </member>
+        <member name="M:IniFile.Ini.CreateObjectModel(IniFile.IniLoadSettings,System.Collections.Generic.IList{IniFile.Items.IniItem})">
+            <summary>
+            Go through each line object and construct a hierarchical object model, with properties under sections and comments/blank lines under respective sections and properties.
+            </summary>
+            <param name="settings">  The INI load settings that control the load behavior. </param>
+            <param name="lineItems"> </param>
+        </member>
+        <member name="M:IniFile.Ini.InternalSave(System.IO.TextWriter)">
+            <summary>
+            Common method called to save the <see cref="T:IniFile.Ini"/> instance data to various destinations such as streams, strings, files and text writers.
+            </summary>
+            <param name="writer"> The text writer to write the data to. </param>
+        </member>
+        <member name="M:IniFile.Ini.ParseIniFile(System.IO.TextReader)">
+            <summary>
+            Transforms the INI content into an in-memory object model.
+            </summary>
+            <param name="reader"> The INI content. </param>
         </member>
         <member name="T:IniFile.IniFormatOptions">
             <summary>
@@ -715,35 +674,31 @@
         </member>
         <member name="T:IniFile.Property">
             <summary>
-                Represents a property object in an INI.
+            Represents a property object in an INI.
             </summary>
         </member>
         <member name="M:IniFile.Property.#ctor(System.String,IniFile.PropertyValue,System.String[])">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Property"/> class.
+            Initializes a new instance of the <see cref="T:IniFile.Property"/> class.
             </summary>
-            <param name="name">The name of the property.</param>
-            <param name="value">The value of the property.</param>
-            <param name="items">
-                Collection of strings that represent the comments and blank lines of the property.
-                If the string is <c>null</c>, an empty string or a whitespace string, then a
-                <see cref="T:IniFile.BlankLine"/> object is created, otherwise a <see cref="T:IniFile.Comment"/> is created.
-            </param>
+            <param name="name">  The name of the property. </param>
+            <param name="value"> The value of the property. </param>
+            <param name="items"> Collection of strings that represent the comments and blank lines of the property. If the string is <c> null </c>, an empty string or a whitespace string, then a <see cref="T:IniFile.BlankLine"/> object is created, otherwise a <see cref="T:IniFile.Comment"/> is created. </param>
             <inheritdoc/>
-        </member>
-        <member name="P:IniFile.Property.Value">
-            <summary>
-                The value of the property.
-            </summary>
         </member>
         <member name="P:IniFile.Property.MultiLineEndOfText">
             <summary>
-                The symbol used to denote the end of a multi-line value.
+            The symbol used to denote the end of a multi-line value.
             </summary>
         </member>
         <member name="P:IniFile.Property.Padding">
             <summary>
-                Padding details of this <see cref="T:IniFile.Property"/>.
+            Padding details of this <see cref="T:IniFile.Property"/>.
+            </summary>
+        </member>
+        <member name="P:IniFile.Property.Value">
+            <summary>
+            The value of the property.
             </summary>
         </member>
         <member name="M:IniFile.Property.ToString">
@@ -755,12 +710,12 @@
                 <para>Property values can be strings, numbers (both floats and integers), date/times and booleans.</para>
             </summary>
         </member>
-        <member name="F:IniFile.PropertyValue._value">
+        <member name="F:IniFile.PropertyValue.value">
             <summary>
                 The value of the property, internally using the actual type.
             </summary>
         </member>
-        <member name="F:IniFile.PropertyValue._stringValue">
+        <member name="F:IniFile.PropertyValue.stringValue">
             <summary>
                 <para>
                     The string representation of the value. This is used if the string representation
@@ -846,41 +801,37 @@
         </member>
         <member name="T:IniFile.Section">
             <summary>
-                <para>Represents a section object in an INI.</para>
-                <para>A section is also a collection of <see cref="T:IniFile.Property"/> instances.</para>
+            <para> Represents a section object in an INI. </para>
+            <para> A section is also a collection of <see cref="T:IniFile.Property"/> instances. </para>
             </summary>
         </member>
         <member name="M:IniFile.Section.#ctor(System.String,System.String[])">
             <summary>
-                Initializes a new instance of the <see cref="T:IniFile.Section"/> class.
+            Initializes a new instance of the <see cref="T:IniFile.Section"/> class.
             </summary>
-            <param name="name">The name of the section.</param>
-            <param name="items">
-                Collection of strings that represent the comments and blank lines of the section.
-                If the string is <c>null</c>, an empty string or a whitespace string, then a
-                <see cref="T:IniFile.BlankLine"/> object is created, otherwise a <see cref="T:IniFile.Comment"/> is created.
-            </param>
+            <param name="name">  The name of the section. </param>
+            <param name="items"> Collection of strings that represent the comments and blank lines of the section. If the string is <c> null </c>, an empty string or a whitespace string, then a <see cref="T:IniFile.BlankLine"/> object is created, otherwise a <see cref="T:IniFile.Comment"/> is created. </param>
             <inheritdoc/>
         </member>
         <member name="P:IniFile.Section.Padding">
             <summary>
-                Padding details of this <see cref="T:IniFile.Section"/>.
+            Padding details of this <see cref="T:IniFile.Section"/>.
             </summary>
         </member>
         <member name="M:IniFile.Section.ToString">
             <inheritdoc/>
         </member>
-        <member name="P:IniFile.Section.Item(System.String)">
-            <summary>
-                Gets or sets the value of the property given its name.
-            </summary>
-            <param name="name">The name of the property to get or set.</param>
-            <returns>The value of the property.</returns>
-        </member>
         <member name="P:IniFile.Section.Count">
             <summary>
-                The number of properties in this section.
+            The number of properties in this section.
             </summary>
+        </member>
+        <member name="P:IniFile.Section.Item(System.String)">
+            <summary>
+            Gets or sets the value of the property given its name.
+            </summary>
+            <param name="name"> The name of the property to get or set. </param>
+            <returns> The value of the property. </returns>
         </member>
     </members>
 </doc>

@@ -8,7 +8,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -22,30 +22,29 @@ using System.Diagnostics;
 
 using IniFile.Items;
 
-namespace IniFile
-{
-    /// <summary>
-    ///     Represents a blank line object in an INI.
-    /// </summary>
-    [DebuggerDisplay("----------")]
-    public sealed class BlankLine : MinorIniItem, IPaddedItem<Padding>
-    {
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="BlankLine"/> class.
-        /// </summary>
-        public BlankLine()
-        {
-        }
+namespace IniFile;
 
-        /// <summary>
-        ///     Padding details of this <see cref="BlankLine"/>.
-        /// </summary>
-        public Padding Padding { get; } = new();
+	/// <summary>
+	///     Represents a blank line object in an INI.
+	/// </summary>
+	[DebuggerDisplay("----------")]
+	public sealed class BlankLine : MinorIniItem, IPaddedItem<Padding>
+	{
+		/// <summary>
+		///     Initializes a new instance of the <see cref="BlankLine"/> class.
+		/// </summary>
+		public BlankLine()
+		{
+		}
 
-        /// <inheritdoc/>
-        public override string ToString()
-        {
-            return Padding.Left.ToString();
-        }
-    }
-}
+		/// <summary>
+		///     Padding details of this <see cref="BlankLine"/>.
+		/// </summary>
+		public Padding Padding { get; } = new();
+
+		/// <inheritdoc/>
+		public override string ToString()
+		{
+			return Padding.Left.ToString();
+		}
+	}
